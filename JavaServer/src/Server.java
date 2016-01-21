@@ -69,6 +69,20 @@ public class Server {
     	}
 	}
     
+    public static synchronized void setMsg(String s){
+    	serverMsg = s;
+    }
+    public static synchronized String getMsg(){
+    	return serverMsg;
+    }
+    
+    public static synchronized void setMsgFlag(boolean f){
+    	newMsg = f;
+    }
+    public static synchronized boolean getMsgFlag(){
+    	return newMsg;
+    }
+    
     public class sysThread extends Thread{
     	Socket socket;
     	BufferedReader in;
@@ -115,17 +129,20 @@ public class Server {
 		    				threadStatus = 2;
 		    			}
 						if (!s.equals(serverMsg)){
-							serverMsg = s;
-							newMsg = true;
+							//serverMsg = s;
+							Server.setMsg(s);
+							//newMsg = true;
+							Server.setMsgFlag(true);
 						}
-						System.out.println("User: " + id + " " + threadStatus + " " + s);
-						out.println("User: " + id + " " + threadStatus + " " + s);
+						System.out.println("User: " + id + " " + newMsg + " " + s);
+						out.println("User: " + id + " " + newMsg + " " + s);
 	    			}
     			}else if (threadStatus == 2){
-    				if (newMsg){
-    					System.out.println(serverMsg);
-    					out.println(serverMsg);
+    				if (Server.getMsgFlag()){
+    					System.out.println(Server.getMsg());
+    					out.println(Server.getMsg());
     					//newMsg = false;
+    					Server.setMsgFlag(false);
     				}
     			}
     		}
