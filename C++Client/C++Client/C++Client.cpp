@@ -22,7 +22,7 @@
 int __cdecl main(int argc)
 {
 	argc = 1234;
-	PCSTR serverId = "192.168.0.14";
+	PCSTR serverId = "localhost";
 
 
 	WSADATA wsaData;
@@ -30,7 +30,7 @@ int __cdecl main(int argc)
 	struct addrinfo *result = NULL,
 		*ptr = NULL,
 		hints;
-	char *sendbuf = "this is a test";
+	char *sendbuf = "output";
 	char recvbuf[DEFAULT_BUFLEN];
 	int iResult;
 	int recvbuflen = DEFAULT_BUFLEN;

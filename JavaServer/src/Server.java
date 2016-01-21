@@ -5,6 +5,7 @@ import java.util.*;
 public class Server {
     static int uniqueId = 0;
     static float x = 0;
+    static String serverMsg;
     int port = 1234;
     
     ArrayList<sysThread> al = new ArrayList<sysThread>();
@@ -74,10 +75,13 @@ public class Server {
     	PrintWriter out;
     	//ObjectOutputStream out;
     	int id;
+    	int threadStatus;
+    	
     	public sysThread(Socket s){
     		socket = s;
     		id = uniqueId;
     		uniqueId++;
+    		threadStatus = 0;
     		try{
     			//out = new ObjectOutputStream(socket.getOutputStream());
     			out= new PrintWriter(socket.getOutputStream(), true);
@@ -94,19 +98,28 @@ public class Server {
     		String temp;
     		//StringBuffer sb = new StringBuffer();
     		while (true){
-    			try{
-    				s = in.readLine();
-    			}catch (Exception e){
-    				System.out.println(id + " Error reading " + e);
-    				break;
-    			}
-    			if (s != null){
-	    			if (s.equals("closeServer")){
+    			if (threadStatus == 1){
+	    			try{
+	    				s = in.readLine();
+	    			}catch (Exception e){
+	    				System.out.println(id + " Error reading " + e);
 	    				break;
 	    			}
-					
-					System.out.println("User: " + id + " " + s);
-					out.println("User: " + id + " " + s);
+	    			if (s != null){
+		    			if (s.equals("closeServer")){
+		    				break;
+		    			}else if (threadStatus == 0 && s.equals("Input")){
+		    				threadStatus = 1;
+		    			}else if (threadStatus == 0 && s.equals("Output")){
+		    				threadStatus = 2;
+		    			}
+						
+		    			serverMsg = s;
+						System.out.println("User: " + id + " " + s);
+						out.println("User: " + id + " " + s);
+	    			}
+    			}else if (threadStatus == 2){
+    				out.println(serverMsg);
     			}
     		}
     		System.out.println("Exiting user: " + id);
