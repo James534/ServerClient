@@ -6,6 +6,7 @@ public class Server {
     static int uniqueId = 0;
     static float x = 0;
     static String serverMsg;
+    static boolean newMsg = false;
     int port = 1234;
     
     ArrayList<sysThread> al = new ArrayList<sysThread>();
@@ -98,7 +99,7 @@ public class Server {
     		String temp;
     		//StringBuffer sb = new StringBuffer();
     		while (true){
-    			if (threadStatus == 1){
+    			if (threadStatus != 2){
 	    			try{
 	    				s = in.readLine();
 	    			}catch (Exception e){
@@ -113,13 +114,19 @@ public class Server {
 		    			}else if (threadStatus == 0 && s.equals("Output")){
 		    				threadStatus = 2;
 		    			}
-						
-		    			serverMsg = s;
-						System.out.println("User: " + id + " " + s);
-						out.println("User: " + id + " " + s);
+						if (!s.equals(serverMsg)){
+							serverMsg = s;
+							newMsg = true;
+						}
+						System.out.println("User: " + id + " " + threadStatus + " " + s);
+						out.println("User: " + id + " " + threadStatus + " " + s);
 	    			}
     			}else if (threadStatus == 2){
-    				out.println(serverMsg);
+    				if (newMsg){
+    					System.out.println(serverMsg);
+    					out.println(serverMsg);
+    					//newMsg = false;
+    				}
     			}
     		}
     		System.out.println("Exiting user: " + id);
