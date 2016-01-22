@@ -5,7 +5,7 @@ import java.util.*;
 public class Server {
     static int uniqueId = 0;
     static float x = 0;
-    static String serverMsg;
+    static String serverMsg = "";
     static boolean newMsg = false;
     int port = 1234;
     
@@ -109,13 +109,17 @@ public class Server {
     	}
     	
     	public void run(){
-    		String s;
+    		String s = null;
     		String temp;
+    		char[] buf = new char[32];
     		//StringBuffer sb = new StringBuffer();
     		while (true){
     			if (threadStatus != 2){
 	    			try{
-	    				s = in.readLine();
+	    				if (in.ready()){
+		    				s = in.readLine();
+		    				//in.read(buf, 0, 32);
+	    				}
 	    			}catch (Exception e){
 	    				System.out.println(id + " Error reading " + e);
 	    				break;
@@ -133,9 +137,11 @@ public class Server {
 							Server.setMsg(s);
 							//newMsg = true;
 							Server.setMsgFlag(true);
+							System.out.println("User: " + id + " " + newMsg + " " + s);
+							out.println("User: " + id + " " + newMsg + " " + s);
 						}
-						System.out.println("User: " + id + " " + newMsg + " " + s);
-						out.println("User: " + id + " " + newMsg + " " + s);
+	    			}else{
+	    				System.out.println(buf);
 	    			}
     			}else if (threadStatus == 2){
     				if (Server.getMsgFlag()){

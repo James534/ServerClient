@@ -4,3 +4,9 @@ C:\Users\James\Documents\GitHub\ServerClient\C#Client\C_Sharp_Client\C_Sharp_Cli
 C:\Users\James\Documents\GitHub\ServerClient\C#Client\C_Sharp_Client\C_Sharp_Client\obj\Debug\C_Sharp_Client.csprojResolveAssemblyReference.cache
 C:\Users\James\Documents\GitHub\ServerClient\C#Client\C_Sharp_Client\C_Sharp_Client\obj\Debug\C_Sharp_Client.exe
 C:\Users\James\Documents\GitHub\ServerClient\C#Client\C_Sharp_Client\C_Sharp_Client\obj\Debug\C_Sharp_Client.pdb
+D:\Documents\ServerClient\ServerClient\C#Client\C_Sharp_Client\C_Sharp_Client\bin\Debug\C_Sharp_Client.exe.config
+D:\Documents\ServerClient\ServerClient\C#Client\C_Sharp_Client\C_Sharp_Client\obj\Debug\C_Sharp_Client.exe
+D:\Documents\ServerClient\ServerClient\C#Client\C_Sharp_Client\C_Sharp_Client\obj\Debug\C_Sharp_Client.pdb
+D:\Documents\ServerClient\ServerClient\C#Client\C_Sharp_Client\C_Sharp_Client\bin\Debug\C_Sharp_Client.exe
+D:\Documents\ServerClient\ServerClient\C#Client\C_Sharp_Client\C_Sharp_Client\bin\Debug\C_Sharp_Client.pdb
+D:\Documents\ServerClient\ServerClient\C#Client\C_Sharp_Client\C_Sharp_Client\obj\Debug\C_Sharp_Client.csprojResolveAssemblyReference.cache

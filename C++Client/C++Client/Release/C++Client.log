@@ -1,0 +1,130 @@
+﻿Build started 1/21/2016 10:53:23 PM.
+     1>Project "D:\Documents\ServerClient\ServerClient\C++Client\C++Client\C++Client.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\VIsual Studio\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Release\C++Client.pch" /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt C++Client.cpp
+         C++Client.cpp
+     1>C++Client.cpp(4): warning C4627: '#include <windows.h>': skipped when looking for precompiled header use
+         C++Client.cpp(4): note: Add directive to 'stdafx.h' or rebuild precompiled header
+     1>C++Client.cpp(5): warning C4627: '#include <winsock2.h>': skipped when looking for precompiled header use
+         C++Client.cpp(5): note: Add directive to 'stdafx.h' or rebuild precompiled header
+     1>C++Client.cpp(6): warning C4627: '#include <ws2tcpip.h>': skipped when looking for precompiled header use
+         C++Client.cpp(6): note: Add directive to 'stdafx.h' or rebuild precompiled header
+     1>C++Client.cpp(7): warning C4627: '#include <stdlib.h>': skipped when looking for precompiled header use
+         C++Client.cpp(7): note: Add directive to 'stdafx.h' or rebuild precompiled header
+     1>C++Client.cpp(9): warning C4627: '#include <iostream>': skipped when looking for precompiled header use
+         C++Client.cpp(9): note: Add directive to 'stdafx.h' or rebuild precompiled header
+     1>C++Client.cpp(10): warning C4627: '#include <string>': skipped when looking for precompiled header use
+         C++Client.cpp(10): note: Add directive to 'stdafx.h' or rebuild precompiled header
+     1>C++Client.cpp(2): warning C4603: 'WIN32_LEAN_AND_MEAN': macro is not defined or definition is different after precompiled header use
+         C++Client.cpp(2): note: Add macro to precompiled header instead of defining here
+         C++Client.cpp(11): note: use of precompiled header
+     1>C++Client.cpp(26): error C2065: 'PCSTR': undeclared identifier
+     1>C++Client.cpp(26): error C2146: syntax error: missing ';' before identifier 'serverId'
+     1>C++Client.cpp(26): error C2065: 'serverId': undeclared identifier
+     1>C++Client.cpp(29): error C2065: 'WSADATA': undeclared identifier
+     1>C++Client.cpp(29): error C2146: syntax error: missing ';' before identifier 'wsaData'
+     1>C++Client.cpp(29): error C2065: 'wsaData': undeclared identifier
+     1>C++Client.cpp(30): error C2065: 'SOCKET': undeclared identifier
+     1>C++Client.cpp(30): error C2146: syntax error: missing ';' before identifier 'ConnectSocket'
+     1>C++Client.cpp(30): error C2065: 'ConnectSocket': undeclared identifier
+     1>C++Client.cpp(30): error C2065: 'INVALID_SOCKET': undeclared identifier
+     1>C++Client.cpp(33): error C2079: 'hints' uses undefined struct 'main::addrinfo'
+     1>C++Client.cpp(40): error C3861: 'MAKEWORD': identifier not found
+     1>C++Client.cpp(40): error C2065: 'wsaData': undeclared identifier
+     1>C++Client.cpp(40): error C3861: 'WSAStartup': identifier not found
+     1>C++Client.cpp(46): error C3861: 'ZeroMemory': identifier not found
+     1>C++Client.cpp(47): error C2228: left of '.ai_family' must have class/struct/union
+         C++Client.cpp(47): note: type is 'int'
+     1>C++Client.cpp(47): error C2065: 'AF_UNSPEC': undeclared identifier
+     1>C++Client.cpp(48): error C2228: left of '.ai_socktype' must have class/struct/union
+         C++Client.cpp(48): note: type is 'int'
+     1>C++Client.cpp(48): error C2065: 'SOCK_STREAM': undeclared identifier
+     1>C++Client.cpp(49): error C2228: left of '.ai_protocol' must have class/struct/union
+         C++Client.cpp(49): note: type is 'int'
+     1>C++Client.cpp(49): error C2065: 'IPPROTO_TCP': undeclared identifier
+     1>C++Client.cpp(52): error C2065: 'serverId': undeclared identifier
+     1>C++Client.cpp(52): error C3861: 'getaddrinfo': identifier not found
+     1>C++Client.cpp(55): error C3861: 'WSACleanup': identifier not found
+     1>C++Client.cpp(60): error C2027: use of undefined type 'main::addrinfo'
+         C++Client.cpp(31): note: see declaration of 'main::addrinfo'
+     1>C++Client.cpp(60): error C2227: left of '->ai_next' must point to class/struct/union/generic type
+     1>C++Client.cpp(63): error C2065: 'ConnectSocket': undeclared identifier
+     1>C++Client.cpp(63): error C2027: use of undefined type 'main::addrinfo'
+         C++Client.cpp(31): note: see declaration of 'main::addrinfo'
+     1>C++Client.cpp(63): error C2227: left of '->ai_family' must point to class/struct/union/generic type
+         C++Client.cpp(31): note: see declaration of 'main::addrinfo'
+     1>C++Client.cpp(63): error C2227: left of '->ai_socktype' must point to class/struct/union/generic type
+     1>C++Client.cpp(64): error C2027: use of undefined type 'main::addrinfo'
+         C++Client.cpp(31): note: see declaration of 'main::addrinfo'
+     1>C++Client.cpp(64): error C2227: left of '->ai_protocol' must point to class/struct/union/generic type
+     1>C++Client.cpp(63): error C3861: 'socket': identifier not found
+     1>C++Client.cpp(65): error C2065: 'ConnectSocket': undeclared identifier
+     1>C++Client.cpp(65): error C2065: 'INVALID_SOCKET': undeclared identifier
+     1>C++Client.cpp(66): error C3861: 'WSAGetLastError': identifier not found
+     1>C++Client.cpp(67): error C3861: 'WSACleanup': identifier not found
+     1>C++Client.cpp(72): error C2065: 'ConnectSocket': undeclared identifier
+     1>C++Client.cpp(72): error C2027: use of undefined type 'main::addrinfo'
+         C++Client.cpp(31): note: see declaration of 'main::addrinfo'
+     1>C++Client.cpp(72): error C2227: left of '->ai_addr' must point to class/struct/union/generic type
+         C++Client.cpp(31): note: see declaration of 'main::addrinfo'
+     1>C++Client.cpp(72): error C2227: left of '->ai_addrlen' must point to class/struct/union/generic type
+     1>C++Client.cpp(72): error C3861: 'connect': identifier not found
+     1>C++Client.cpp(73): error C2065: 'SOCKET_ERROR': undeclared identifier
+     1>C++Client.cpp(74): error C2065: 'ConnectSocket': undeclared identifier
+     1>C++Client.cpp(74): error C3861: 'closesocket': identifier not found
+     1>C++Client.cpp(75): error C2065: 'ConnectSocket': undeclared identifier
+     1>C++Client.cpp(75): error C2065: 'INVALID_SOCKET': undeclared identifier
+     1>C++Client.cpp(81): error C3861: 'freeaddrinfo': identifier not found
+     1>C++Client.cpp(83): error C2065: 'ConnectSocket': undeclared identifier
+     1>C++Client.cpp(83): error C2065: 'INVALID_SOCKET': undeclared identifier
+     1>C++Client.cpp(85): error C3861: 'WSACleanup': identifier not found
+     1>C++Client.cpp(90): error C2065: 'ConnectSocket': undeclared identifier
+     1>C++Client.cpp(90): error C3861: 'strlen': identifier not found
+     1>C++Client.cpp(90): error C3861: 'send': identifier not found
+     1>C++Client.cpp(91): error C2065: 'SOCKET_ERROR': undeclared identifier
+     1>C++Client.cpp(92): error C3861: 'WSAGetLastError': identifier not found
+     1>C++Client.cpp(93): error C2065: 'ConnectSocket': undeclared identifier
+     1>C++Client.cpp(93): error C3861: 'closesocket': identifier not found
+     1>C++Client.cpp(94): error C3861: 'WSACleanup': identifier not found
+     1>C++Client.cpp(101): error C2065: 'ConnectSocket': undeclared identifier
+     1>C++Client.cpp(101): error C2065: 'SD_SEND': undeclared identifier
+     1>C++Client.cpp(101): error C3861: 'shutdown': identifier not found
+     1>C++Client.cpp(102): error C2065: 'SOCKET_ERROR': undeclared identifier
+     1>C++Client.cpp(103): error C3861: 'WSAGetLastError': identifier not found
+     1>C++Client.cpp(104): error C2065: 'ConnectSocket': undeclared identifier
+     1>C++Client.cpp(104): error C3861: 'closesocket': identifier not found
+     1>C++Client.cpp(105): error C3861: 'WSACleanup': identifier not found
+     1>C++Client.cpp(112): error C2065: 'ConnectSocket': undeclared identifier
+     1>C++Client.cpp(112): error C3861: 'recv': identifier not found
+     1>C++Client.cpp(113): error C2039: 'string': is not a member of 'std'
+         predefined C++ types (compiler internal)(208): note: see declaration of 'std'
+     1>C++Client.cpp(113): error C2065: 'string': undeclared identifier
+     1>C++Client.cpp(113): error C2146: syntax error: missing ';' before identifier 'response'
+     1>C++Client.cpp(113): error C2065: 'response': undeclared identifier
+     1>C++Client.cpp(117): error C2065: 'response': undeclared identifier
+     1>C++Client.cpp(117): error C2039: 'string': is not a member of 'std'
+         predefined C++ types (compiler internal)(208): note: see declaration of 'std'
+     1>C++Client.cpp(117): error C3861: 'string': identifier not found
+     1>C++Client.cpp(118): error C2039: 'cout': is not a member of 'std'
+         predefined C++ types (compiler internal)(208): note: see declaration of 'std'
+     1>C++Client.cpp(118): error C2065: 'cout': undeclared identifier
+     1>C++Client.cpp(118): error C2065: 'response': undeclared identifier
+     1>C++Client.cpp(118): error C2039: 'endl': is not a member of 'std'
+         predefined C++ types (compiler internal)(208): note: see declaration of 'std'
+     1>C++Client.cpp(118): error C2065: 'endl': undeclared identifier
+     1>C++Client.cpp(123): error C3861: 'WSAGetLastError': identifier not found
+     1>C++Client.cpp(128): error C2065: 'ConnectSocket': undeclared identifier
+     1>C++Client.cpp(128): error C3861: 'closesocket': identifier not found
+     1>C++Client.cpp(129): error C3861: 'WSACleanup': identifier not found
+     1>C++Client.cpp(131): error C2039: 'cout': is not a member of 'std'
+         predefined C++ types (compiler internal)(208): note: see declaration of 'std'
+     1>C++Client.cpp(131): error C2065: 'cout': undeclared identifier
+     1>C++Client.cpp(131): error C2039: 'endl': is not a member of 'std'
+         predefined C++ types (compiler internal)(208): note: see declaration of 'std'
+     1>C++Client.cpp(131): error C2065: 'endl': undeclared identifier
+     1>C++Client.cpp(133): error C3861: 'Sleep': identifier not found
+     1>Done Building Project "D:\Documents\ServerClient\ServerClient\C++Client\C++Client\C++Client.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.13

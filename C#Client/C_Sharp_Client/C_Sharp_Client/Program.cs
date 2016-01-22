@@ -1,76 +1,38 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 
-public class SynchronousSocketClient
+namespace CSharpSocket
 {
-
-    public static void StartClient()
+    class MainClass
     {
-        // Data buffer for incoming data.
-        byte[] bytes = new byte[1024];
-
-        // Connect to a remote device.
-        try
+        public static void Main(string[] args)
         {
-            // Establish the remote endpoint for the socket.
-            // This example uses port 11000 on the local computer.
-            IPHostEntry ipHostInfo = Dns.Resolve("100.64.205.229");
-            IPAddress ipAddress = ipHostInfo.AddressList[0];
-            IPEndPoint remoteEP = new IPEndPoint(ipAddress, 1234);
+            try {
+                Socket soc = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                System.Net.IPAddress ipAdd = System.Net.IPAddress.Parse("192.168.0.14");
+                System.Net.IPEndPoint remoteEP = new IPEndPoint(ipAdd, 1234);
+                soc.Connect(remoteEP);
 
-            // Create a TCP/IP  socket.
-            Socket sender = new Socket(AddressFamily.InterNetwork,
-                SocketType.Stream, ProtocolType.Tcp);
+                //Start sending stuf..
+                byte[] byData = System.Text.Encoding.ASCII.GetBytes("Output\n");
+                soc.Send(byData);
+                while (true)
+                {
+                    byte[] buffer = new byte[1024];
+                    int iRx = soc.Receive(buffer);
+                    char[] chars = new char[iRx];
 
-            // Connect the socket to the remote endpoint. Catch any errors.
-            try
-            {
-                sender.Connect(remoteEP);
-
-                Console.WriteLine("Socket connected to {0}",
-                    sender.RemoteEndPoint.ToString());
-
-                // Encode the data string into a byte array.
-                byte[] msg = Encoding.ASCII.GetBytes("Hello World");
-
-                // Send the data through the socket.
-                int bytesSent = sender.Send(msg);
-
-                // Receive the response from the remote device.
-                int bytesRec = sender.Receive(bytes);
-                Console.WriteLine("Echoed test = {0}",
-                    Encoding.ASCII.GetString(bytes, 0, bytesRec));
-
-                // Release the socket.
-                sender.Shutdown(SocketShutdown.Both);
-                sender.Close();
-
-            }
-            catch (ArgumentNullException ane)
-            {
-                Console.WriteLine("ArgumentNullException : {0}", ane.ToString());
-            }
-            catch (SocketException se)
-            {
-                Console.WriteLine("SocketException : {0}", se.ToString());
+                    System.Text.Decoder d = System.Text.Encoding.UTF8.GetDecoder();
+                    int charLen = d.GetChars(buffer, 0, iRx, chars, 0);
+                    System.String recv = new System.String(chars);
+                    Console.WriteLine(recv);
+                }
             }
             catch (Exception e)
             {
-                Console.WriteLine("Unexpected exception : {0}", e.ToString());
+                Console.WriteLine(e);
             }
-
         }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.ToString());
-        }
-    }
-
-    public static int Main(String[] args)
-    {
-        StartClient();
-        return 0;
     }
 }
