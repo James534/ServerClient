@@ -138,7 +138,7 @@ public class Server {
 							//newMsg = true;
 							Server.setMsgFlag(true);
 							System.out.println("User: " + id + " " + newMsg + " " + s);
-							out.println("User: " + id + " " + newMsg + " " + s);
+							out.println(s);
 						}
 	    			}else{
 	    				System.out.println(buf);
